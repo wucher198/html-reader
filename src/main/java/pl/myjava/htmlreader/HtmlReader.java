@@ -7,6 +7,7 @@ import pl.myjava.htmlreader.pl.myjava.htmlreader.errors.HtmlReaderException;
  */
 public interface HtmlReader {
     void setPage(String pageUrl) throws HtmlReaderException;
-    boolean openConnection() throws HtmlReaderException;
+    void openConnection() throws HtmlReaderException;
     String returnPage();
+    void closeConnection() throws HtmlReaderException;
 }

@@ -9,7 +9,7 @@ import java.io.InputStreamReader;
 import java.net.MalformedURLException;
 import java.net.URL;
 import java.net.URLConnection;
-import java.util.Optional;
+import java.util.*;
 
 /**
  * Created by wucher198 on 17.03.16.
@@ -18,6 +18,8 @@ public class HtmlReaderImpl implements HtmlReader {
     private URL url;
     private URLConnection connection;
     private BufferedReader in;
+
+    private Map<String, String> htmlTagsToRead = new HashMap<String, String>();
 
     public void setPage(String pageUrl) throws HtmlReaderException {
         if (!Strings.isNullOrEmpty(pageUrl)) {
@@ -29,7 +31,7 @@ public class HtmlReaderImpl implements HtmlReader {
         }
     }
 
-    public boolean openConnection() throws HtmlReaderException {
+    public void openConnection() throws HtmlReaderException {
         try {
             if (url != null) {
                 connection = url.openConnection();
@@ -40,22 +42,49 @@ public class HtmlReaderImpl implements HtmlReader {
         }
     }
 
+    public void addHtmlTagToRead(String tag) {
+
+    }
+
     public String returnPage() {
-        Optional<String> result = Optional.empty();
+        return Optional.ofNullable(readLine()).orElse("");
+    }
+
+    public void closeConnection() throws HtmlReaderException {
+        if (connection != null && in != null) {
+            try {
+                in.close();
+            } catch (IOException e) {
+                throw new HtmlReaderException(e.getMessage());
+            } finally {
+                in = null;
+                connection = null;
+            }
+        }
+    }
+
+    private void readTags() {
+
+    }
+
+    // TODO Try find tags one by one during read of page. Read page only once.
+    private void readTag(String attribute, String name) {
+        String line = readLine();
+    }
+
+    // TODO Change it to read really only one line
+    private String readLine() {
+        StringBuffer buffer = new StringBuffer();
+        String line;
 
         try {
-            StringBuffer buffer = new StringBuffer();
-            String line;
-
             while ((line = in.readLine()) != null) {
-                buffer.append(line);
+                buffer.append(line).append("\n");
             }
-
-            result = Optional.of(buffer.toString());
         } catch (IOException e) {
             e.printStackTrace();
         }
 
-        return result.orElse("");
+        return buffer.toString();
     }
 }
