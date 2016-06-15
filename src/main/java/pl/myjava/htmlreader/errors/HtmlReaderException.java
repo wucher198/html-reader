@@ -1,4 +1,4 @@
-package pl.myjava.htmlreader.pl.myjava.htmlreader.errors;
+package pl.myjava.htmlreader.errors;
 
 /**
  * Created by wucher198 on 17.03.16.

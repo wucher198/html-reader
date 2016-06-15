@@ -1,4 +1,4 @@
-package pl.myjava.htmlreader.pl.myjava.htmlreader.utils;
+package pl.myjava.htmlreader.utils;
 
 /**
  * Created by wucher198 on 17.03.16.

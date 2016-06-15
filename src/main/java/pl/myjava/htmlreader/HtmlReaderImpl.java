@@ -1,7 +1,7 @@
 package pl.myjava.htmlreader;
 
-import pl.myjava.htmlreader.pl.myjava.htmlreader.errors.HtmlReaderException;
-import pl.myjava.htmlreader.pl.myjava.htmlreader.utils.Strings;
+import pl.myjava.htmlreader.errors.HtmlReaderException;
+import pl.myjava.htmlreader.utils.Strings;
 
 import java.io.BufferedReader;
 import java.io.IOException;
