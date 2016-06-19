@@ -1,0 +1,4 @@
+2016-06-19
+
+1) Write an factory that return good HTMLElementReader
+2) Write an element storage that will hold result of reading of HTML.
