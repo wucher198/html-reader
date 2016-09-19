@@ -17,3 +17,11 @@ hs_err_pid*
 
 # mvn
 target/
+/.classpath
+/.project
+
+# Eclipse
+.settings/
+
+# JUnit
+/test-output

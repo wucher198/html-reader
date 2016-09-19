@@ -3,9 +3,8 @@ package pl.myjava.htmlreader;
 import org.testng.annotations.AfterClass;
 import org.testng.annotations.BeforeClass;
 import org.testng.annotations.Test;
-import pl.myjava.htmlreader.errors.HtmlReaderException;
 
-import static org.testng.Assert.*;
+import pl.myjava.htmlreader.errors.HtmlReaderException;
 
 /**
  * Created by wucher198 on 21.03.16.

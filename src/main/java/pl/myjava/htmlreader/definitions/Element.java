@@ -20,9 +20,17 @@ public abstract class Element {
      */
     private String clazz;
     /**
+     * Attributes of given element.
+     */
+    private List<Attributes<Object>> attributes;
+    /**
      * Elements that will be read during reding this element.
      */
     private List<Element> elements;
+    /**
+     * Value of element.
+     */
+    private String value;
 
     protected Element(String id, String clazz) {
         this.id = id;
@@ -58,4 +66,86 @@ public abstract class Element {
     public void setElements(List<Element> elements) {
         this.elements = elements;
     }
+    
+	public List<Attributes<Object>> getAttributes() {
+		return attributes;
+	}
+
+	public void setAttributes(List<Attributes<Object>> attributes) {
+		this.attributes = attributes;
+	}
+
+	public String getValue() {
+		return value;
+	}
+
+	public void setValue(String value) {
+		this.value = value;
+	}
+
+	public void setId(String id) {
+		this.id = id;
+	}
+
+	public void setClazz(String clazz) {
+		this.clazz = clazz;
+	}
+
+	@Override
+	public int hashCode() {
+		final int prime = 31;
+		int result = 1;
+		result = prime * result + ((attributes == null) ? 0 : attributes.hashCode());
+		result = prime * result + ((clazz == null) ? 0 : clazz.hashCode());
+		result = prime * result + ((elements == null) ? 0 : elements.hashCode());
+		result = prime * result + ((id == null) ? 0 : id.hashCode());
+		result = prime * result + ((type == null) ? 0 : type.hashCode());
+		result = prime * result + ((value == null) ? 0 : value.hashCode());
+		return result;
+	}
+
+	@Override
+	public boolean equals(Object obj) {
+		if (this == obj)
+			return true;
+		if (obj == null)
+			return false;
+		if (getClass() != obj.getClass())
+			return false;
+		Element other = (Element) obj;
+		if (attributes == null) {
+			if (other.attributes != null)
+				return false;
+		} else if (!attributes.equals(other.attributes))
+			return false;
+		if (clazz == null) {
+			if (other.clazz != null)
+				return false;
+		} else if (!clazz.equals(other.clazz))
+			return false;
+		if (elements == null) {
+			if (other.elements != null)
+				return false;
+		} else if (!elements.equals(other.elements))
+			return false;
+		if (id == null) {
+			if (other.id != null)
+				return false;
+		} else if (!id.equals(other.id))
+			return false;
+		if (type != other.type)
+			return false;
+		if (value == null) {
+			if (other.value != null)
+				return false;
+		} else if (!value.equals(other.value))
+			return false;
+		return true;
+	}
+
+	@Override
+	public String toString() {
+		return "Element [type=" + type + ", id=" + id + ", clazz=" + clazz + ", attributes=" + attributes
+				+ ", elements=" + elements + ", value=" + value + "]";
+	}	
 }
