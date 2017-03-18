@@ -1,6 +1,7 @@
 package pl.myjava.htmlreader.definitions;
 
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by wucher198 on 15.06.16.
@@ -20,9 +21,19 @@ public abstract class Element {
      */
     private String clazz;
     /**
+<<<<<<< Updated upstream
      * Attributes of given element.
      */
     private List<Attributes<Object>> attributes;
+=======
+     * All attributes of element.
+     */
+    private Map<String, String> attributes;
+    /**
+     * Value of of element.
+     */
+    private String value;
+>>>>>>> Stashed changes
     /**
      * Elements that will be read during reding this element.
      */
@@ -66,6 +77,7 @@ public abstract class Element {
     public void setElements(List<Element> elements) {
         this.elements = elements;
     }
+<<<<<<< Updated upstream
     
 	public List<Attributes<Object>> getAttributes() {
 		return attributes;
@@ -148,4 +160,28 @@ public abstract class Element {
 		return "Element [type=" + type + ", id=" + id + ", clazz=" + clazz + ", attributes=" + attributes
 				+ ", elements=" + elements + ", value=" + value + "]";
 	}	
+=======
+
+    public void addAttribute(String name, String value) {
+        if (attributes != null) {
+            attributes.put(name, value);
+        }
+    }
+
+    public Map<String, String> getAttributes() {
+        return attributes;
+    }
+
+    public void setAttributes(Map<String, String> attributes) {
+        this.attributes = attributes;
+    }
+
+    public String getValue() {
+        return value;
+    }
+
+    public void setValue(String value) {
+        this.value = value;
+    }
+>>>>>>> Stashed changes
 }
